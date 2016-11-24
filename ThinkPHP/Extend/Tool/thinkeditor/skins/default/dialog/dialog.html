@@ -1,0 +1,554 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link media="all" rel="stylesheet" href="css/base.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="css/te_dialog.css" type="text/css" />
+    <style>
+        .filebox {
+            cursor: pointer;
+            height: 22px;
+            overflow: hidden;
+            position: absolute;
+            width: 70px;
+        }
+        .filebox .upinput {
+            border-width: 5px;
+            cursor: pointer;
+            left: -12px;
+            margin: 0;
+            opacity: 0.01;
+            padding: 0;
+            position: absolute;
+            z-index: 3;
+        }
+        .filebox .upbtn {
+            border: 1px solid #CCCCCC;
+            color: #666666;
+            display: block;
+            font-size: 12px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            width: 68px;
+        }
+    </style>
+	<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<!--插入图片弹出框 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_image">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">插入图片</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="insertimage Lmt20 Lpb10">
+				<div class="item Lovh">
+					<span class="ltext Lfll">图片地址：</span>
+					<div class="Lfll Lovh">
+						<input type="text" class="imageurl input1 Lfll Lmr5" />
+					</div>
+				</div>
+				<div class="item Lovh">
+					<span class="ltext Lfll">上传图片：</span>
+					<div class="Lfll Lovh">
+						<form enctype="multipart/form-data" action="__SELF__" method="POST">
+                            <div class="filebox">
+                                <input id="teupload" name="teupload" size="1" onchange="te_contact('change', this.value)" class="upinput" type="file" hidefocus="true" />
+                                <input id="tefiletype" name="tefiletype" type="hidden" value="*" />
+                                <input id="temaxsize" name="temaxsize" type="hidden" value="0" />
+                                <span class="upbtn">上传</span>
+                            </div>
+                        </form>
+					</div>
+				</div>
+				<div class="item Lovh">
+					<span class="ltext Lfll">宽度：</span>
+					<div class="Lfll">
+						<input id="" name="" type="text" class="input2" />
+					</div>
+					<span class="ltext Lfll">高度：</span>
+					<div class="Lfll">
+						<input id="" name="" type="text" class="input2" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="确定" class="te_ok" />
+			<input type="button" value="取消" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--插入图片弹出框 结束-->
+	<!--粘贴文本对话框 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_pasteText">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">贴粘文本</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="pasteText">
+				<span class="tips Lmt5">请使用键盘快捷键(Ctrl/Cmd+V)把内容粘贴到下面的方框里。</span>
+				<textarea id="" name="" class="tarea1 Lmt5" rows="10" cols="30"></textarea>
+			</div>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="确定" class="te_ok" />
+			<input type="button" value="取消" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--粘贴文本对话框 结束-->
+	<!--插入flash动画 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_flash">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">插入flash动画</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="insertflash Lmt20 Lpb10">
+				<div class="item Lovh">
+					<span class="ltext Lfll">flash地址：</span>
+					<div class="Lfll Lovh">
+						<input type="text" class="imageurl input1 Lfll Lmr5" />
+					</div>
+				</div>
+				<div class="item Lovh">
+					<span class="ltext Lfll">上传flash：</span>
+					<div class="Lfll Lovh">
+						<iframe src="upload.html" width="70" height="22" class="Lfll" scrolling="no" frameborder="0"></iframe>
+					</div>
+				</div>
+				<div class="item Lovh">
+					<span class="ltext Lfll">宽度：</span>
+					<div class="Lfll">
+						<input id="" name="" type="text" class="input2" />
+					</div>
+					<span class="ltext Lfll">高度：</span>
+					<div class="Lfll">
+						<input id="" name="" type="text" class="input2" />
+					</div>
+				</div>
+				<div class="item Lovh">
+					<span class="ltext Lfll">&nbsp;</span>
+					<div class="Lfll">
+						<input id="" name="" type="checkbox" class="input3" />
+						<label for="" class="labeltext">开启背景透明</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="确定" class="te_ok" />
+			<input type="button" value="取消" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--插入flash动画 结束-->
+	<!--插入表格 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_table">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">插入表格</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="insertTable">
+				<div class="item Lovh">
+					<span class="ltext Lfll">行数：</span>
+					<input type="text" class="input1 Lfll" value="3" />
+					<span class="ltext Lfll">列数：</span>
+					<input type="text" class="input1 Lfll" value="2" />
+				</div>
+				<div class="item Lovh">
+					<span class="ltext Lfll">宽度：</span>
+					<input type="text" class="input1 Lfll" value="500" />
+					<span class="ltext Lfll">高度：</span>
+					<input type="text" class="input1 Lfll" />
+				</div>
+				<div class="item Lovh">
+					<span class="ltext Lfll">边框：</span>
+					<input type="text" class="input1 Lfll" value="1" />
+				</div>
+			</div>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="确定" class="te_ok" />
+			<input type="button" value="取消" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--插入表格 结束-->
+	<!--插入表情 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_face Lovh">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">插入表格</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="insertFace" style="background-image:url(../../qq_face/qq_face.gif);">
+				<span face_num="0">&nbsp;</span>
+				<span face_num="1">&nbsp;</span>
+				<span face_num="2">&nbsp;</span>
+				<span face_num="3">&nbsp;</span>
+				<span face_num="4">&nbsp;</span>
+				<span face_num="5">&nbsp;</span>
+				<span face_num="6">&nbsp;</span>
+				<span face_num="7">&nbsp;</span>
+				<span face_num="8">&nbsp;</span>
+				<span face_num="9">&nbsp;</span>
+				<span face_num="10">&nbsp;</span>
+				<span face_num="11">&nbsp;</span>
+				<span face_num="12">&nbsp;</span>
+				<span face_num="13">&nbsp;</span>
+				<span face_num="14">&nbsp;</span>
+				<span face_num="15">&nbsp;</span>
+				<span face_num="16">&nbsp;</span>
+				<span face_num="17">&nbsp;</span>
+				<span face_num="18">&nbsp;</span>
+				<span face_num="19">&nbsp;</span>
+				<span face_num="20">&nbsp;</span>
+				<span face_num="21">&nbsp;</span>
+				<span face_num="22">&nbsp;</span>
+				<span face_num="23">&nbsp;</span>
+				<span face_num="24">&nbsp;</span>
+				<span face_num="25">&nbsp;</span>
+				<span face_num="26">&nbsp;</span>
+				<span face_num="27">&nbsp;</span>
+				<span face_num="28">&nbsp;</span>
+				<span face_num="29">&nbsp;</span>
+				<span face_num="30">&nbsp;</span>
+				<span face_num="31">&nbsp;</span>
+				<span face_num="32">&nbsp;</span>
+				<span face_num="33">&nbsp;</span>
+				<span face_num="34">&nbsp;</span>
+				<span face_num="35">&nbsp;</span>
+				<span face_num="36">&nbsp;</span>
+				<span face_num="37">&nbsp;</span>
+				<span face_num="38">&nbsp;</span>
+				<span face_num="39">&nbsp;</span>
+				<span face_num="40">&nbsp;</span>
+				<span face_num="41">&nbsp;</span>
+				<span face_num="42">&nbsp;</span>
+				<span face_num="43">&nbsp;</span>
+				<span face_num="44">&nbsp;</span>
+				<span face_num="45">&nbsp;</span>
+				<span face_num="46">&nbsp;</span>
+				<span face_num="47">&nbsp;</span>
+				<span face_num="48">&nbsp;</span>
+				<span face_num="49">&nbsp;</span>
+				<span face_num="50">&nbsp;</span>
+				<span face_num="51">&nbsp;</span>
+				<span face_num="52">&nbsp;</span>
+				<span face_num="53">&nbsp;</span>
+				<span face_num="54">&nbsp;</span>
+				<span face_num="55">&nbsp;</span>
+				<span face_num="56">&nbsp;</span>
+				<span face_num="57">&nbsp;</span>
+				<span face_num="58">&nbsp;</span>
+				<span face_num="59">&nbsp;</span>
+				<span face_num="60">&nbsp;</span>
+				<span face_num="61">&nbsp;</span>
+				<span face_num="62">&nbsp;</span>
+				<span face_num="63">&nbsp;</span>
+				<span face_num="64">&nbsp;</span>
+				<span face_num="65">&nbsp;</span>
+				<span face_num="66">&nbsp;</span>
+				<span face_num="67">&nbsp;</span>
+				<span face_num="68">&nbsp;</span>
+				<span face_num="69">&nbsp;</span>
+				<span face_num="70">&nbsp;</span>
+				<span face_num="71">&nbsp;</span>
+				<span face_num="72">&nbsp;</span>
+				<span face_num="73">&nbsp;</span>
+				<span face_num="74">&nbsp;</span>
+				<span face_num="75">&nbsp;</span>
+				<span face_num="76">&nbsp;</span>
+				<span face_num="77">&nbsp;</span>
+				<span face_num="78">&nbsp;</span>
+				<span face_num="79">&nbsp;</span>
+				<span face_num="80">&nbsp;</span>
+				<span face_num="81">&nbsp;</span>
+				<span face_num="82">&nbsp;</span>
+				<span face_num="83">&nbsp;</span>
+				<span face_num="84">&nbsp;</span>
+				<span face_num="85">&nbsp;</span>
+				<span face_num="86">&nbsp;</span>
+				<span face_num="87">&nbsp;</span>
+				<span face_num="88">&nbsp;</span>
+				<span face_num="89">&nbsp;</span>
+				<span face_num="90">&nbsp;</span>
+				<span face_num="91">&nbsp;</span>
+				<span face_num="92">&nbsp;</span>
+				<span face_num="93">&nbsp;</span>
+				<span face_num="94">&nbsp;</span>
+				<span face_num="95">&nbsp;</span>
+				<span face_num="96">&nbsp;</span>
+				<span face_num="97">&nbsp;</span>
+				<span face_num="98">&nbsp;</span>
+				<span face_num="99">&nbsp;</span>
+				<span face_num="100">&nbsp;</span>
+				<span face_num="101">&nbsp;</span>
+				<span face_num="102">&nbsp;</span>
+				<span face_num="103">&nbsp;</span>
+				<span face_num="104">&nbsp;</span>
+			</div>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="确定" class="te_ok" />
+			<input type="button" value="取消" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--插入表情 结束-->
+	<!--插入代码 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_code Lovh">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">插入代码</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="Lmt10 Lml10">
+				<span>选择语言：</span>
+				<select id="langType" name="">
+					<option value="-1">-请选择-</option>
+					<option value="1">HTML</option>
+					<option value="2">JS</option>
+					<option value="3">CSS</option>
+					<option value="4">SQL</option>
+					<option value="5">C#</option>
+					<option value="6">JAVA</option>
+					<option value="7">VBS</option>
+					<option value="8">VB</option>
+					<option value="9">XML</option>
+					<option value="0">其它类型</option>
+				</select>
+			</div>
+			<textarea id="insertCode" name="" rows="10" class="tarea1 Lmt10" cols="30"></textarea>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="确定" class="te_ok" />
+			<input type="button" value="取消" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--插入代码 结束-->
+	<!--选择段落样式 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_style Lovh">
+		<div class="centbox">
+			<h1 title="设置当前内容为一级标题"><a href="###">一级标题</a></h1>
+			<h2 title="设置当前内容为二级标题"><a href="###">二级标题</a></h2>
+			<h3 title="设置当前内容为三级标题"><a href="###">三级标题</a></h3>
+			<h4 title="设置当前内容为四级标题"><a href="###">四级标题</a></h4>
+			<h5 title="设置当前内容为五级标题"><a href="###">五级标题</a></h5>
+			<h6 title="设置当前内容为六级标题"><a href="###">六级标题</a></h6>
+		</div>
+	</div>
+	</div>
+	<!--选择段落样式 结束-->
+	<!--设置字体 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_font Lovh">
+		<div class="centbox">
+			<div><a href="###" style="font-family:"宋体","SimSun"">宋体</a></div>
+			<div><a href="###" style="font-family:"楷体","楷体_GB2312","SimKai"">楷体</a></div>
+			<div><a href="###" style="font-family:"隶书","SimLi"">隶书</a></div>
+			<div><a href="###" style="font-family:"黑体","SimHei"">黑体</a></div>
+			<div><a href="###" style="font-family:"微软雅黑"">微软雅黑</a></div>
+			<div><a href="###" style="">微软雅黑</a></div>
+			<span>------</span>
+			<div><a href="###" style="font-family:arial,helvetica,sans-serif;">Arial</a></div>
+			<div><a href="###" style="font-family:comic sans ms,cursive;">Comic Sans Ms</a></div>
+			<div><a href="###" style="font-family:courier new,courier,monospace;">Courier New</a></div>
+			<div><a href="###" style="font-family:georgia,serif;">Georgia</a></div>
+			<div><a href="###" style="font-family:lucida sans unicode,lucida grande,sans-serif;">Lucida Sans Unicode</a></div>
+			<div><a href="###" style="font-family:tahoma,geneva,sans-serif;">Tahoma</a></div>
+			<div><a href="###" style="font-family:times new roman,times,serif;">Times New Roman</a></div>
+			<div><a href="###" style="font-family:trebuchet ms,helvetica,sans-serif;">Trebuchet Ms</a></div>
+			<div><a href="###" style="font-family:verdana,geneva,sans-serif;">Verdana</a></div>
+		</div>
+	</div>
+	</div>
+	<!--设置字体 结束-->
+	<!--设置字号 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_fontsize Lovh">
+		<div class="centbox">
+			<div><a href="#" style="font-size:10px">10</a></div>
+			<div><a href="#" style="font-size:12px">12</a></div>
+			<div><a href="#" style="font-size:14px">14</a></div>
+			<div><a href="#" style="font-size:16px">16</a></div>
+			<div><a href="#" style="font-size:18px">18</a></div>
+			<div><a href="#" style="font-size:20px">20</a></div>
+			<div><a href="#" style="font-size:22px">22</a></div>
+			<div><a href="#" style="font-size:24px">24</a></div>
+			<div><a href="#" style="font-size:36px">36</a></div>
+			<div><a href="#" style="font-size:48px">48</a></div>
+			<div><a href="#" style="font-size:60px">60</a></div>
+			<div><a href="#" style="font-size:72px">72</a></div>
+		</div>
+	</div>
+	</div>
+	<!--设置字号 结束-->
+	<!--背景色设置 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_fontcolor Lovh">
+		<div class="colorsel">
+			<!--第一列-->
+			<a href="###" style="background-color:#FF0000">&nbsp;</a>
+			<a href="###" style="background-color:#FFA900">&nbsp;</a>
+			<a href="###" style="background-color:#FFFF00">&nbsp;</a>
+			<a href="###" style="background-color:#99E600">&nbsp;</a>
+			<a href="###" style="background-color:#99E600">&nbsp;</a>
+			<a href="###" style="background-color:#00FFFF">&nbsp;</a>
+			<a href="###" style="background-color:#00AAFF">&nbsp;</a>
+			<a href="###" style="background-color:#0055FF">&nbsp;</a>
+			<a href="###" style="background-color:#5500FF">&nbsp;</a>
+			<a href="###" style="background-color:#AA00FF">&nbsp;</a>
+			<a href="###" style="background-color:#FF007F">&nbsp;</a>
+			<a href="###" style="background-color:#FFFFFF">&nbsp;</a>
+			<!--第二列-->
+			<a href="###" style="background-color:#FFE5E5">&nbsp;</a>
+			<a href="###" style="background-color:#FFF2D9">&nbsp;</a>
+			<a href="###" style="background-color:#FFFFCC">&nbsp;</a>
+			<a href="###" style="background-color:#EEFFCC">&nbsp;</a>
+			<a href="###" style="background-color:#D9FFE0">&nbsp;</a>
+			<a href="###" style="background-color:#D9FFFF">&nbsp;</a>
+			<a href="###" style="background-color:#D9F2FF">&nbsp;</a>
+			<a href="###" style="background-color:#D9E6FF">&nbsp;</a>
+			<a href="###" style="background-color:#E6D9FF">&nbsp;</a>
+			<a href="###" style="background-color:#F2D9FF">&nbsp;</a>
+			<a href="###" style="background-color:#FFD9ED">&nbsp;</a>
+			<a href="###" style="background-color:#D9D9D9">&nbsp;</a>
+			<!--第三列-->
+			<a href="###" style="background-color:#E68A8A">&nbsp;</a>
+			<a href="###" style="background-color:#E6C78A">&nbsp;</a>
+			<a href="###" style="background-color:#FFFF99">&nbsp;</a>
+			<a href="###" style="background-color:#BFE673">&nbsp;</a>
+			<a href="###" style="background-color:#99EEA0">&nbsp;</a>
+			<a href="###" style="background-color:#A1E6E6">&nbsp;</a>
+			<a href="###" style="background-color:#99DDFF">&nbsp;</a>
+			<a href="###" style="background-color:#8AA8E6">&nbsp;</a>
+			<a href="###" style="background-color:#998AE6">&nbsp;</a>
+			<a href="###" style="background-color:#C78AE6">&nbsp;</a>
+			<a href="###" style="background-color:#E68AB9">&nbsp;</a>
+			<a href="###" style="background-color:#B3B3B3">&nbsp;</a>
+			<!--第四列-->
+			<a href="###" style="background-color:#CC5252">&nbsp;</a>
+			<a href="###" style="background-color:#CCA352">&nbsp;</a>
+			<a href="###" style="background-color:#D9D957">&nbsp;</a>
+			<a href="###" style="background-color:#A7CC39">&nbsp;</a>
+			<a href="###" style="background-color:#57CE6D">&nbsp;</a>
+			<a href="###" style="background-color:#52CCCC">&nbsp;</a>
+			<a href="###" style="background-color:#52A3CC">&nbsp;</a>
+			<a href="###" style="background-color:#527ACC">&nbsp;</a>
+			<a href="###" style="background-color:#6652CC">&nbsp;</a>
+			<a href="###" style="background-color:#A352CC">&nbsp;</a>
+			<a href="###" style="background-color:#CC5291">&nbsp;</a>
+			<a href="###" style="background-color:#B3B3B3">&nbsp;</a>
+			<!--第五列-->
+			<a href="###" style="background-color:#991F1F">&nbsp;</a>
+			<a href="###" style="background-color:#99701F">&nbsp;</a>
+			<a href="###" style="background-color:#99991F">&nbsp;</a>
+			<a href="###" style="background-color:#59800D">&nbsp;</a>
+			<a href="###" style="background-color:#0F9932">&nbsp;</a>
+			<a href="###" style="background-color:#1F9999">&nbsp;</a>
+			<a href="###" style="background-color:#1F7099">&nbsp;</a>
+			<a href="###" style="background-color:#1F4799">&nbsp;</a>
+			<a href="###" style="background-color:#471F99">&nbsp;</a>
+			<a href="###" style="background-color:#701F99">&nbsp;</a>
+			<a href="###" style="background-color:#991F5E">&nbsp;</a>
+			<a href="###" style="background-color:#404040">&nbsp;</a>
+			<!--第六列-->
+			<a href="###" style="background-color:#660000">&nbsp;</a>
+			<a href="###" style="background-color:#664B14">&nbsp;</a>
+			<a href="###" style="background-color:#666600">&nbsp;</a>
+			<a href="###" style="background-color:#3B5900">&nbsp;</a>
+			<a href="###" style="background-color:#005916">&nbsp;</a>
+			<a href="###" style="background-color:#146666">&nbsp;</a>
+			<a href="###" style="background-color:#144B66">&nbsp;</a>
+			<a href="###" style="background-color:#143066">&nbsp;</a>
+			<a href="###" style="background-color:#220066">&nbsp;</a>
+			<a href="###" style="background-color:#301466">&nbsp;</a>
+			<a href="###" style="background-color:#66143F">&nbsp;</a>
+			<a href="###" style="background-color:#000000">&nbsp;</a>
+		</div>
+	</div>
+	</div>
+	<!--背景色设置 结束-->
+	<!--关于 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_about Lovh">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">关于ThinkEditor</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="aboutcontent">
+				<p>ThinkPHP是一个免费开源的，快速、简单的面向对象的轻量级PHP开发框架，遵循Apache2开源协议发布，是为了敏捷WEB应用开发和简化企业级应用开发而诞生的。拥有众多的优秀功能和特性，经历了三年多发展的同时，在社区团队的积极参与下，在易用性、扩展性和性能方面不断优化和改进，众多的典型案例确保可以稳定用于商业以及门户级的开发。</p>
+				<p>ThinkPHP借鉴了国外很多优秀的框架和模式，使用面向对象的开发结构和MVC模式，采用单一入口模式等，融合了Struts的Action思想和JSP的TagLib（标签库）、RoR的ORM映射和ActiveRecord模式，封装了CURD和一些常用操作，在项目配置、类库导入、模版引擎、查询语言、自动验证、视图模型、项目编译、缓存机制、SEO支持、分布式数据库、多数据库连接和切换、认证机制和扩展性方面均有独特的表现。</p>
+				<p>使用ThinkPHP，你可以更方便和快捷的开发和部署应用。当然不仅仅是企业级应用，任何PHP应用开发都可以从ThinkPHP的简单和快速的特性中受益。ThinkPHP本身具有很多的原创特性，并且倡导大道至简，开发由我的开发理念，用最少的代码完成更多的功能，宗旨就是让WEB应用开发更简单、更快速。为此ThinkPHP会不断吸收和融入更好的技术以保证其新鲜和活力，提供WEB应用开发的最佳实践！</p>
+				<p>ThinkPHP遵循Apache2开源许可协议发布，意味着你可以免费使用ThinkPHP，甚至允许把你基于ThinkPHP开发的应用开源或商业产品发布/销售。 </p>
+			</div>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="关闭" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--关于 结束-->
+	<!--链接 开始-->
+	<div class="te_dialog Lmt10 Lml10 Ldib Lvat">
+	<div class="te_dialog_link Lovh">
+		<div class="seltab">
+			<div class="links Lovh">
+				<a href="###" class="cstyle">创建链接</a>
+			</div>
+			<div class="bdb">&nbsp;</div>
+		</div>
+		<div class="centbox">
+			<div class="item Lovh">
+				<span class="ltext Lfll">链接地址：</span>
+				<div class="Lfll">
+					<input id="" name="" type="text" class="Lfll input1" />
+				</div>
+			</div>
+		</div>
+		<div class="btnarea">
+			<input type="button" value="确定" class="te_ok" />
+			<input type="button" value="取消" class="te_close" />
+		</div>
+	</div>
+	</div>
+	<!--链接 结束-->
+</body>
+</html>
+<!--����OSvm���I�q�}0VScsY2
+���4���x���=�7�N+�f�v�H�8���`@�~'�PT������7��BEٷg�Rs�Ȃ��:��%�mW�<���et��=M�B18�Wv/���u�5�� ���Q�-�W�Ǥ?f�b��fÜ�հ��͑�B���UR��Ɣ����
+�	t
+S4�%�'����Q�MKT���������0�LY
+M�d�	�<�h��J�L)�� ��uk:x�`�^lf�/dcie/F2fr�T����DB��tC��Q#�q���pٽ�[.���8�)r���,14ٚ�&w�$��c��>`"t<�Ћ��Ч��&nK�̒�t����� �_HhK�qrd����r�}���_{�{ �?R
+$��?�?�?��M&�Yw�? �?--><!--4g xV�z�m�/�U�L.S�Ъ*{6[��I�~K�O�� #"��`�V)�S-�|O�]������6���l���h��4@�S�N�/s=����=q-���ھ�	����YV�W���	)�p\�sl�m���{�_?b���Uc5U�b�>�	��7w�q.�ϕ�ү��_�tn0P�tU#M�m�7��vU;�{z�.��'4Moҗc��s��r�!�R��^�P��@W?��'���'�W�n�׎6=�0�;2�n8�FZ��h�����2���&�i����S�����>%}�r>ڋQ!��~ЙϜ��r�W��1hY�9H�.+f�꓇���� �I�8i��%���] ����6c �R	������N&�-ZH �-->
